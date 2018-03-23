@@ -1,0 +1,14 @@
+{
+	"db":{
+		"db_type":"mysql",
+		"host":"192.168.0.66",
+		"dbname":"gwxing",
+		"user":"root",
+		"password":"sz123",
+		"port":"3306",
+		"prefix":"a_"
+	}
+	
+
+
+}
