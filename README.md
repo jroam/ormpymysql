@@ -1,21 +1,33 @@
 ### 使用手册
-* 引入库
+'''
+    mysql数据库操作类 包地址：http://dev.mysql.com/downloads/connector/python/
 
-```
-import pymysql.Lib.MyDB as dbdb
+    使用示例(传入配置文件):
+    import pymysql.Lib.MyDB as dbdb
+    db=dbdb.MyDB()
 
-db=dbdb.MyDB()
-mr=db.table("gentuanyou") #指定表名
 
-#构建条件
-wd={}
-wd["title"]=["like","%四川%"]
+    # 查询
+    wdata={}
+    wdata["title"]=["like","%九寨%"]
+    mr=dbdb.table("gentuanyou")
+    rs=mr.field("gentuanyouid,title").where(wdata).limit("0,5").order("gentuanyouid asc").select()
+    print(mr.lastsql)
+    print(rs)
 
-#执行查询
-rs=mr.cache(True,360).field("gentuanyouid ,title").where(wd).limit("0,5").select()
 
-#打印结果
-print(rs)
-```
+    #  更新操作
+    rs=mr.where(wdata).save(data)
 
+    # 删除操作
+    rs=mr.where(wdata).delete()
+
+    # 添加操作
+    data={}
+    data["title"]="张三四2"
+    data["type"]="e22"
+    mr.add(data)
+
+
+    '''
 
