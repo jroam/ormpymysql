@@ -19,7 +19,7 @@ def file_put_content(filename,strs,mod="a"):
     '''
     try:
         f=open(filename,mod)
-        f.write(strs)
+        f.write(strs+"\n")
         f.close()
         return True
     except Exception as e:
